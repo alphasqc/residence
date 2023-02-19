@@ -4,15 +4,33 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "serve": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.45"
+    "axios": "^1.3.1",
+    "element-plus": "^2.2.30",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "unplugin-auto-import": "^0.14.2",
+    "unplugin-vue-components": "^0.23.0",
     "vite": "^4.0.0"
-  }
+  },
+  "description": "### 本项目是基于Vue3框架和Element-plus组件库进行开发的一个博客论坛网站",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphasqc/residence_front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alphasqc/residence_front/issues"
+  },
+  "homepage": "https://github.com/alphasqc/residence_front#readme"
 }
