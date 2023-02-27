@@ -1,0 +1,45 @@
+.login {
+    height: 100%;
+    width: 100%;
+    background-image: url('../assets/loginimg.png');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    height: 26rem;
+    width: 24rem;
+    background-color: rgba(252, 252, 252, 0.9);
+    border-radius: 4px;
+    box-shadow: 0 0 1rem rgba(216, 216, 216, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.el-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20rem;
+}
+
+.el-button {
+    width: 16rem;
+}
+
+.login-box> * {
+    padding: 1rem 0 1rem 0;
+}
+
+a{
+    font-size: 0.5rem;
+}
+
+a:hover {
+    text-decoration: 1px solid rgba(0, 136, 255, 0.8);
+}

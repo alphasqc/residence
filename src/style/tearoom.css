@@ -1,0 +1,58 @@
+.tearoom {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 1rem 0;
+    background-color: rgba(246, 246, 246, 0.8);
+}
+
+.navcontent {
+    width: 14rem;
+    height: 20rem;
+    background-color: #fff;
+    margin-right: 1rem;
+    position: sticky;
+    top: 1rem;
+}
+
+.teacontent {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.skeleton {
+    padding: 1rem;
+    background-color: #fff;
+    width: 40rem;
+    height: 12rem;
+    margin-bottom: 1rem;
+}
+
+.usercontent {
+    width: 14rem;
+    margin-left: 1rem;
+}
+
+.usercontent>* {
+    height: 20rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1100px) {
+    .usercontent {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .navcontent {
+        display: none;
+    }
+}
+
+.el-skeleton {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}

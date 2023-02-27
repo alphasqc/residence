@@ -1,0 +1,22 @@
+.residence {
+    padding: 1rem 0 1rem 0;
+    background-color: rgba(246, 246, 246, 0.8);
+    display: flex;
+    justify-content: center;
+}
+
+.residence-box {
+    width: 80rem;
+    display: flex;
+    justify-content: center;    
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.user-card {
+    height: 10rem;
+    width: 10rem;
+    background-color: #fff;
+    margin: 1rem;
+    padding: 1rem;
+}
