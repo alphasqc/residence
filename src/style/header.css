@@ -1,0 +1,146 @@
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.headercomponent{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border: 0;
+}
+
+.logo {
+    padding: 0 1rem 0 1rem;
+}
+
+.searchinput{
+    border: 1px solid rgba(146, 146, 146, 0.6);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.searchinput>input{
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    transition: all 0.3s ease-out;
+}
+
+.searchinput>input:focus{
+    outline: none;
+    width: 14rem;
+}
+
+.searchinput:focus-within{
+    border: 1px solid rgba(22, 103, 255, 0.9);
+}
+
+@media screen and (max-width: 640px){
+    .searchinput{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .el-dropdown {
+        display: none;
+    }
+}
+
+.el-menu{
+    display: flex;
+    align-items: center;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.el-menu-demo {
+    padding: 0 4% 0 4%;
+}
+
+/* - Chrome ≤56,
+   - Safari 5-10.0
+   - iOS Safari 4.2-10.2
+   - Opera 15-43
+   - Opera Mobile >12
+   - Android Browser 2.1-4.4.4
+   - Samsung Internet
+   - UC Browser for Android
+   - QQ Browser */
+::-webkit-input-placeholder {
+    color: rgba(146, 146, 146, 0.6);
+}
+
+/* Firefox 4-18 */
+:-moz-placeholder {
+    color: rgba(146, 146, 146, 0.6);
+}
+
+/* Firefox 19-50 */
+::-moz-placeholder {
+    color: rgba(146, 146, 146, 0.6);
+}
+
+/* - Internet Explorer 10–11
+   - Internet Explorer Mobile 10-11 */
+:-ms-input-placeholder {
+    color: rgba(146, 146, 146, 0.6);
+}
+
+/* Edge (also supports ::-webkit-input-placeholder) */
+::-ms-input-placeholder {
+    color: rgba(146, 146, 146, 0.6);
+}
+
+/* CSS Working Draft */
+::placeholder {
+    color: rgba(146, 146, 146, 0.6);
+}
+
+.el-dropdown{
+    height: 2rem;
+}
+
+.el-menu ::v-deep .logo :focus {
+    outline: none;
+}
+
+.el-dropdown-menu li {
+    width: 6rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.searchinput {
+    padding: 0 1rem 0 1rem;
+}
+
+.headercomponent> * {
+    margin-left: 1rem;
+}
+
+.popover-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.el-icon :hover {
+    color: rgba(22, 103, 255, 0.9);
+}
+
+/* 没头像前的替用 */
+.user-head {
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    border-radius: 4rem;
+    color: white;
+    background-color: rgba(146, 146, 146, 0.6);
+}

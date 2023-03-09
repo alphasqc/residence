@@ -6,6 +6,9 @@
     color: #2c3e50;
     max-width: none;
     padding: 0;
+}
+
+body {
     background-color: rgba(246, 246, 246, 0.8);
 }
 
@@ -14,14 +17,6 @@ body,
 #app {
     height: 100%;
     width: 100%;
-}
-
-.flex-grow {
-    flex-grow: 1;
-}
-
-.el-menu-demo {
-    padding: 0 4rem 0 4rem;
 }
 
 .el-header {

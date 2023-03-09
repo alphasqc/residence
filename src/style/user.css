@@ -1,0 +1,72 @@
+.personshow {
+    display: flex;
+    padding: 1rem 0 1rem 0;
+    justify-content: center;
+}
+
+.left-box {
+    width: 44rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-box {
+    width: 12rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-box,.left-box> * {
+    margin-bottom: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.person-card {
+    height: 12rem;
+}
+
+.person-box {
+    height: 10rem;
+}
+
+@media screen and (max-width: 950px) {
+    .right-box {
+        display: none;
+    }
+    .left-box {
+        width: 100%;
+    }
+}
+
+.personsetting {
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personsetting> * {
+    max-width: 48rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #fff;
+}
+
+.back-box {
+    box-sizing: border-box;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem 0 1rem;
+}
+
+.back-box> a {
+    float: left;
+    font-size: 0.7rem;
+    color: rgba(121, 121, 121, 0.8)
+}
+
+.setting-box {
+    height: 22rem;
+}
