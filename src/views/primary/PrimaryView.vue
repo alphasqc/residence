@@ -45,7 +45,7 @@ const primaryList = [
         index: '/ui',
         title: 'UI'
     }
-]
+];
 </script>
 
 <style scoped>

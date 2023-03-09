@@ -1,3 +1,9 @@
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
 .headercomponent{
     height: 100%;
     display: flex;
@@ -117,4 +123,24 @@
 
 .headercomponent> * {
     margin-left: 1rem;
+}
+
+.popover-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.el-icon :hover {
+    color: rgba(22, 103, 255, 0.9);
+}
+
+/* 没头像前的替用 */
+.user-head {
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    border-radius: 4rem;
+    color: white;
+    background-color: rgba(146, 146, 146, 0.6);
 }

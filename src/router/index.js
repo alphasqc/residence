@@ -1,7 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '@views/HomeView.vue'
-import LoginView from '@views/LoginView.vue'
-import RegistView from '@views/RegistView.vue'
+import LoginView from '@views/login/LoginView.vue'
+import RegistView from '@views/login/RegistView.vue'
+
+import SearchView from '@views/search/SearchView.vue'
 
 import PersonshowView from '@views/user/PersonshowView.vue'
 import PersonsettingView from '@views/user/PersonsettingView.vue'
@@ -17,6 +19,8 @@ import UiView from '@views/primary/UiView.vue'
 import TearoomView from '@views/tearoom/TearoomView.vue'
 
 import ResidenceView from '@views/residence/ResidenceView.vue'
+
+import BlogwriteView from '@views/write/BlogwriteView.vue'
 
 const routes = [
     {
@@ -118,6 +122,14 @@ const routes = [
                     title: '设置页'
                 },
                 component: PersonsettingView
+            },
+            {
+                path: '/search',
+                name: 'search',
+                meta: {
+                    title: '搜索内容页'
+                },
+                component: SearchView
             }
         ]
     },
@@ -136,6 +148,14 @@ const routes = [
             title: '注册页'
         },
         component: RegistView
+    },
+    {
+        path: '/blogwrite',
+        name: 'blogwrite',
+        meta: {
+            title: '文章撰写页'
+        },
+        component: BlogwriteView
     }
 ]
 

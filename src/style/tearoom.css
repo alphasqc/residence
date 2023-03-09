@@ -18,12 +18,13 @@
     display: flex;
     justify-content: left;
     flex-direction: column;
+    width: 100%;
+    max-width: 40rem;
 }
 
 .skeleton {
     padding: 1rem;
     background-color: #fff;
-    width: 40rem;
     height: 12rem;
     margin-bottom: 1rem;
 }
@@ -54,5 +55,49 @@
 .el-skeleton {
     display: flex;
     flex-direction: column;
+    justify-content: left;
+}
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+:deep(.el-textarea__inner) {
+    /* background-color: rgba(146, 146, 146, 0.6); */
+}
+
+:deep(.el-input__count) {
+    background-color: transparent;
+}
+
+.tea-set {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tea-set>.el-select {
+    width: 8rem;
+}
+
+.tea-main {
+    background-color: white;
+    padding: 1rem;
+    min-height: 4rem;
+    margin-bottom: 1rem;
+}
+
+.tea-box {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.tea-box > * {
+    margin-right: 1rem;
+}
+
+.teabox-text {
+    display: flex;
     justify-content: left;
 }

@@ -6,4 +6,5 @@
 
 <script setup>
 import SkeletonComponent from '@components/SkeletonComponent.vue'
+
 </script>

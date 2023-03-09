@@ -1,6 +1,6 @@
 <template>
     <div class="skeleton">
-        <el-skeleton :rows="5" animated />
+        <el-skeleton :rows="9" animated />
     </div>
 </template> 
 

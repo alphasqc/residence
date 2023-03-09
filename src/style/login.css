@@ -1,4 +1,4 @@
-.login {
+.login,.regist {
     height: 100%;
     width: 100%;
     background-image: url('../assets/loginimg.png');
@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.login-box {
+.login-box,.regist-box {
     height: 26rem;
     width: 24rem;
     background-color: rgba(252, 252, 252, 0.9);
@@ -21,11 +21,22 @@
     padding: 1rem;
 }
 
+.regist-box {
+    max-height: 30rem;
+    height: 100%;
+    width: 28rem;
+}
+
 .el-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 20rem;
+    max-width: 20rem;
+    width: 100%;
+}
+
+.regist-form {
+    max-width: 22rem;
 }
 
 .el-button {
@@ -33,6 +44,10 @@
 }
 
 .login-box> * {
+    padding: 1rem 0 1rem 0;
+}
+
+.regist-box> * {
     padding: 1rem 0 1rem 0;
 }
 

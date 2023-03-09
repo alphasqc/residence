@@ -20,9 +20,9 @@
                     <input
                         v-model="searchtest"
                         placeholder="居所中探索"
-                        @keydown.enter.native="searchContent(searchtest)"
+                        @keydown.enter.native="searchContent"
                         />
-                    <el-icon :size="14" @click="searchContent(searchtest)">
+                    <el-icon :size="14" @click="searchContent">
                         <Search />
                     </el-icon>
                 </div>
@@ -31,12 +31,27 @@
                     创作中心
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item>写文章</el-dropdown-item>
-                            <el-dropdown-item>写笔记</el-dropdown-item>
+                            <el-dropdown-item @click="writeBlog">写文章</el-dropdown-item>
+                            <el-dropdown-item @click="writeTea">写笔记</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-                <img src="../assets/sign in.svg" @click="jumpLogin" />
+
+                <img src="../assets/sign in.svg" @click="jumpLogin" v-show="userToken"/>
+                <el-popover
+                    placement="top-start"
+                    :width="220"
+                    trigger="hover"
+                >
+                    <template #reference>
+                        <div class="user-head" v-show="!userToken">{{ userInfo.userName }}</div>
+                    </template>
+
+                    <div class="popover-box">
+                        <el-button text @click="jumpUser">用户中心</el-button>
+                        <el-button text @click="offUser">退出登录</el-button>
+                    </div>
+                </el-popover>
             </div>
 
         </el-menu>
@@ -44,10 +59,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import route from '@/router'
-import { useRouter } from 'vue-router'
-import { Search } from '@element-plus/icons-vue'
+import { onBeforeUpdate, ref, watch } from 'vue';
+import route from '@/router';
+import { onBeforeRouteUpdate, useRouter } from 'vue-router';
+import { Search } from '@element-plus/icons-vue';
 
 // 页面导航列表
 const navItems = [
@@ -65,30 +80,65 @@ const navItems = [
     }
 ];
 
+// 获取当前焦点路由
 const activeIndex = ref('');
-if(route.currentRoute.value.fullPath == '/synthesis'){
-    activeIndex.value = '/primary';
-}else { 
-    activeIndex.value = route.currentRoute.value.fullPath;
-}
+watch(() => route.currentRoute.value.fullPath, (newPath, oldPath) => { 
+    if(newPath == '/synthesis'){
+        activeIndex.value = '/primary';
+    }else { 
+        activeIndex.value = newPath;
+    }
+}, { immediate: true });
 
 // 搜索部分
 const searchtest = ref('');
-const searchContent = (text) => {
-    console.log(text);
+const searchContent = () => {
+    if(searchtest.value != ''){
+        router.push('/search')
+    }
+    console.log(searchtest.value);
 }
 
 // LOGO刷新
 const router = useRouter();
 const Reset = () => {
-    activeIndex.value = '/primary';
     router.push('/primary');
+}
+
+// 是否登录
+const userToken = ref(true);
+if(localStorage.getItem('token')){
+    userToken.value = false;
 }
 
 // 登录跳转
 const jumpLogin = () => {
-    router.push('/personshow')
+    router.push('/login');
 }
+
+// 个人页跳转
+const jumpUser = () => {
+    router.push('/personshow');
+}
+
+// 退出登录
+const offUser = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
+    location.reload();
+}
+
+const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+// 创作中心按钮组
+const writeBlog = () => {
+    router.push('/blogwrite')
+}
+
+const writeTea = () => {
+    router.push('/tearoom')
+}
+
 </script>
 
 <style>
