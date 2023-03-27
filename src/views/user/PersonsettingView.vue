@@ -1,7 +1,7 @@
 <template>
     <div class="personsetting">
         <div class="back-box">
-            <router-link to="/personshow">返回用户中心</router-link>
+            <router-link to="/personshow">&#60;&#60;返回用户中心</router-link>
         </div>
         <div class="setting-box">
             

@@ -57,10 +57,12 @@
 
 .flex-grow {
     flex-grow: 1;
+    max-width: 40rem;
 }
 
 .el-menu-demo {
-    padding: 0 4% 0 4%;
+    display: flex;
+    justify-content: center;
 }
 
 /* - Chrome ≤56,

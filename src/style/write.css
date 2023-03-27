@@ -1,0 +1,83 @@
+.blogwrite {
+    /* background-color: white; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.write-head {
+    height: 6rem;
+    background-color: white;
+    width: 100%;
+    border-bottom: 2px solid rgba(216, 216, 216, 0.7);
+    padding: 1rem 2rem 1rem 1rem;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.write-head > * {
+    margin-right: 1rem;
+}
+
+.write-head > input {
+    height: 4rem;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+}
+
+.write-user {
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: rgba(146, 146, 146, 0.6);
+    border-radius: 2rem;
+}
+
+.flex-write {
+    flex-grow: 1;
+    max-width: 44rem;
+}
+
+.write-content {
+    flex: 1;
+    padding: 2rem;
+    width: 50rem;
+    background-color: transparent;
+    /* flex-direction: column;
+    align-items: flex-start; */
+}
+
+@media screen and (max-width: 870px) {
+    .write-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .write-user, .drafts-button {
+        display: none;
+    }
+    .write-head>input {
+        width: 100%;
+    }
+}
+
+.write-content > textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;background-color: transparent;
+    font-size: 1.5rem;
+}
+
+.write-content > .el-select {
+    width: 8rem;
+    float: left;
+}
