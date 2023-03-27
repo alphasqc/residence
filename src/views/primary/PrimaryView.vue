@@ -12,6 +12,7 @@
             </div>
             <div class="adcontent">
                 <div class="ad-card">
+                    <img src="../../assets/adimg-1.jpg" alt="">
                 </div>
             </div>
         </div>

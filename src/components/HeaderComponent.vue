@@ -32,7 +32,8 @@
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item @click="writeBlog">写文章</el-dropdown-item>
-                            <el-dropdown-item @click="writeTea">写笔记</el-dropdown-item>
+                            <el-dropdown-item @click="writeTea">写讨论</el-dropdown-item>
+                            <el-dropdown-item @click="writeTest">写笔记</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -59,9 +60,9 @@
 </template>
 
 <script setup>
-import { onBeforeUpdate, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import route from '@/router';
-import { onBeforeRouteUpdate, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { Search } from '@element-plus/icons-vue';
 
 // 页面导航列表
@@ -137,6 +138,10 @@ const writeBlog = () => {
 
 const writeTea = () => {
     router.push('/tearoom')
+}
+
+const writeTest = () => {
+    router.push('/testwrite')
 }
 
 </script>
