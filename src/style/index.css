@@ -9,7 +9,6 @@
 }
 
 body {
-    background-color: rgba(246, 246, 246, 0.8);
 }
 
 html,
@@ -17,6 +16,7 @@ body,
 #app {
     height: 100%;
     width: 100%;
+    background-color: rgba(246, 246, 246);
 }
 
 .el-header {
