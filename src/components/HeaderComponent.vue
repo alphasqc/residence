@@ -38,17 +38,19 @@
                     </template>
                 </el-dropdown>
 
+                <!-- 登录入口 -->
                 <img src="../assets/sign in.svg" @click="jumpLogin" v-show="userToken"/>
                 <el-popover
                     placement="top-start"
                     :width="220"
                     trigger="hover"
+                    v-show="userToken" 
                 >
                     <template #reference>
                         <div class="user-head" v-show="!userToken">{{ userInfo.userName }}</div>
                     </template>
 
-                    <div class="popover-box">
+                    <div class="popover-box" >
                         <el-button text @click="jumpUser">用户中心</el-button>
                         <el-button text @click="offUser">退出登录</el-button>
                     </div>
@@ -129,7 +131,12 @@ const offUser = () => {
     location.reload();
 }
 
-const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+const userInfo = ref([]);
+if(userToken.value) {
+    userInfo.value.userNmae = '未登录'
+} else {    
+    userInfo.value = JSON.parse(localStorage.getItem('userInfo'));
+}
 
 // 创作中心按钮组
 const writeBlog = () => {

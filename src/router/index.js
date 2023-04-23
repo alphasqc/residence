@@ -4,6 +4,9 @@ import LoginView from '@views/login/LoginView.vue'
 import RegistView from '@views/login/RegistView.vue'
 
 import SearchView from '@views/search/SearchView.vue'
+import SearchBlog from '@views/search/SearchBlog.vue'
+import SearchTea from '@views/search/SearchTea.vue'
+import SearchUser from '@views/search/SearchUser.vue'
 
 import PersonshowView from '@views/user/PersonshowView.vue'
 import PersonsettingView from '@views/user/PersonsettingView.vue'
@@ -21,6 +24,8 @@ import TearoomView from '@views/tearoom/TearoomView.vue'
 import ResidenceView from '@views/residence/ResidenceView.vue'
 
 import BlogwriteView from '@views/write/BlogwriteView.vue'
+
+import BlogDetail from '@views/blog/BlogDetail.vue'
 
 const routes = [
     {
@@ -92,6 +97,14 @@ const routes = [
                 ]
             },
             {
+                path: '/blogdetail',
+                name: 'blogdetail',
+                meta: {
+                    title: '文章详情页'
+                },
+                component: BlogDetail
+            },
+            {
                 path: '/tearoom',
                 name: 'tearoom',
                 meta: {
@@ -129,7 +142,34 @@ const routes = [
                 meta: {
                     title: '搜索内容页'
                 },
-                component: SearchView
+                redirect: '/searchblog',
+                component: SearchView,
+                children: [
+                    {
+                        path: '/searchblog',
+                        name: 'searchblog',
+                        meta: {
+                            title: '搜索文章模块'
+                        },
+                        component: SearchBlog
+                    },
+                    {
+                        path: '/searchtea',
+                        name: 'searchtea',
+                        meta: {
+                            title: '搜索讨论模块'
+                        },
+                        component: SearchTea
+                    },
+                    {
+                        path: '/searchuser',
+                        name: 'searchuser',
+                        meta: {
+                            title: '搜索用户模块'
+                        },
+                        component: SearchUser
+                    }
+                ]
             }
         ]
     },

@@ -3,7 +3,7 @@
             <skeleton-component v-show="showSynthesis" />
             <div class="primary-box" v-show="!showSynthesis">
                 <template v-for="(item, index) in blogInfo" :key="index">
-                    <div class="blog-box">
+                    <div class="blog-box" @click="jumpDetail">
                         <div class="primary-img" v-show="item.blogImg != ''">
                             <img :src=item.blogImg alt="">
                         </div>
@@ -24,6 +24,13 @@
 import SkeletonComponent from '@components/SkeletonComponent.vue';
 import axios from 'axios';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+// 页面跳转
+const router = useRouter();
+const jumpDetail = () => {
+    router.push('/blogdetail')
+}
 
 // 控制骨架屏显示
 const showSynthesis = ref(true)

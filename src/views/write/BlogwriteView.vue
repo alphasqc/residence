@@ -19,7 +19,7 @@
                     :value="item.value"
                     />
             </el-select>
-        </div>
+        </div>s
     </div>
 </template>
 
@@ -43,12 +43,14 @@ const submitBlog = () => {
         method: 'post',
         url: '/api/blogs/add',
         data: {
-            userID: userInfo.userID,
+            UserUserID: userInfo.userID,
             blogTitle: blogInfo.value.title,
             blogContent: blogInfo.value.content,
             blogType: selectNum.value,
             blogImg: blogInfo.value.img
         }
+    }).then((res) => {
+        console.log(res)
     })
     router.push('/primary')
 };
