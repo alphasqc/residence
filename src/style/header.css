@@ -145,4 +145,8 @@
     border-radius: 4rem;
     color: white;
     background-color: rgba(146, 146, 146, 0.6);
+    /* 超过隐藏 */
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
 }

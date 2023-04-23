@@ -14,9 +14,9 @@ body {
 html,
 body,
 #app {
-    height: 100%;
     width: 100%;
-    background-color: rgba(246, 246, 246);
+    min-height: 100vh;
+    background-color: rgba(246, 246, 246, 0.5);
 }
 
 .el-header {

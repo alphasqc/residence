@@ -38,7 +38,7 @@ export default defineConfig({
     // 代理端口
     port: 3000,
     // 自动打开浏览器
-    // open: true,
+    open: true,
     proxy: {
       "/api": {
         // 目标地址
@@ -48,7 +48,7 @@ export default defineConfig({
         // 开启websockets代理
         ws: true,
         // 验证ssl证书
-        // secure: false,
+        secure: false,
         // pathRewrite: {
         //   '^/api': '/', // rewrite path
         // },

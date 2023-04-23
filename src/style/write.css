@@ -34,10 +34,14 @@
     height: 3rem;
     width: 3rem;
     line-height: 3rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
     background-color: rgba(146, 146, 146, 0.6);
     border-radius: 2rem;
+    /* 超过隐藏 */
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
 }
 
 .flex-write {
