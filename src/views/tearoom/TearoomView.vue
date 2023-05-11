@@ -1,6 +1,7 @@
 <template>
     <div class="tearoom">
         <div class="navcontent">
+            <img src="../../assets/adimg-4.jpg" alt="">
         </div>
         <div class="teacontent">
 
@@ -51,9 +52,10 @@
         </div>
         <div class="usercontent">
             <div class="user-box">
+                    <img src="../../assets/adimg-2.jpg" alt="">
             </div>
             <div class="topic-box">
-                
+                    <img src="../../assets/adimg-3.jpg" alt="">
             </div>
         </div>
     </div>
@@ -92,17 +94,21 @@ const teaDom = ref(true)
 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 // 提交事件
 const submitTea = () => {
-    axios.request({
-        method: 'post',
-        url: '/api/tea/add',
-        data: {
-            teaText: teaText.value,
-            userName: userInfo.userName,
-            teaType: selectNum.value
-        }
-    }).then(()=> {
-        location.reload();
-    })
+    if (localStorage.getItem('userInfo') == null) {
+        ElMessage.warning('请先登录')
+    } else {
+        axios.request({
+            method: 'post',
+            url: '/api/tea/add',
+            data: {
+                teaText: teaText.value,
+                userName: userInfo.userName,
+                teaType: selectNum.value
+            }
+        }).then(()=> {
+            location.reload();
+        })
+    }
 }
 
 // 获取内容

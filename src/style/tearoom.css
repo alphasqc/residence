@@ -6,9 +6,13 @@
     background-color: rgba(246, 246, 246, 0.8);
 }
 
+img {
+    max-width: 100%;
+}
+
 .navcontent {
     width: 14rem;
-    height: 20rem;
+    max-height: 1rem;
     background-color: #fff;
     margin-right: 1rem;
     position: sticky;
@@ -101,4 +105,8 @@
 .teabox-text {
     display: flex;
     justify-content: left;
+}
+
+.searchtea {
+    width: 40rem;
 }

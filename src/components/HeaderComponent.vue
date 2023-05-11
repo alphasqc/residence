@@ -3,7 +3,6 @@
         <el-menu
             :default-active="activeIndex"
             class="el-menu-demo"
-            mode="horizontal"
             :ellipsis="false"
             router
             >
@@ -44,7 +43,6 @@
                     placement="top-start"
                     :width="220"
                     trigger="hover"
-                    v-show="userToken" 
                 >
                     <template #reference>
                         <div class="user-head" v-show="!userToken">{{ userInfo.userName }}</div>
@@ -66,6 +64,7 @@ import { ref, watch } from 'vue';
 import route from '@/router';
 import { useRouter } from 'vue-router';
 import { Search } from '@element-plus/icons-vue';
+import { ElMessage } from 'element-plus';
 
 // 页面导航列表
 const navItems = [
@@ -97,9 +96,12 @@ watch(() => route.currentRoute.value.fullPath, (newPath, oldPath) => {
 const searchtest = ref('');
 const searchContent = () => {
     if(searchtest.value != ''){
-        router.push('/search')
+        router.push('/search');
+        localStorage.setItem('searchinput', JSON.stringify(searchtest.value))
+        searchtest.value = '';
+    }else {
+        ElMessage.warning('请输入内容再进行搜索');
     }
-    console.log(searchtest.value);
 }
 
 // LOGO刷新
@@ -122,13 +124,15 @@ const jumpLogin = () => {
 // 个人页跳转
 const jumpUser = () => {
     router.push('/personshow');
+    localStorage.setItem('userID', JSON.parse(localStorage.getItem('userInfo')).userID)
 }
 
 // 退出登录
 const offUser = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userInfo');
-    location.reload();
+    // location.reload();
+    router.push('/login');
 }
 
 const userInfo = ref([]);
@@ -140,15 +144,30 @@ if(userToken.value) {
 
 // 创作中心按钮组
 const writeBlog = () => {
-    router.push('/blogwrite')
+    if (localStorage.getItem('userInfo') == null) {
+        ElMessage.warning('请先登录')
+    } else {
+        router.push('/blogwrite')
+    }
 }
 
 const writeTea = () => {
-    router.push('/tearoom')
+    if (localStorage.getItem('userInfo') == null) {
+        ElMessage.warning('请先登录')
+    } else {
+        router.push('/tearoom')
+    }
 }
 
 const writeTest = () => {
-    router.push('/testwrite')
+    if (localStorage.getItem('userInfo') == null) {
+        ElMessage.warning('请先登录')
+    } else {
+        router.push({
+            path: '/personshow',
+            query: { personshow: true }
+        });
+    }
 }
 
 </script>

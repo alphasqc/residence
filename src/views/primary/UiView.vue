@@ -17,6 +17,7 @@
                 </div>
             </template>
         </div>
+        <el-card shadow="always" v-show="dataif">没有此分类的文章</el-card>
     </div>
 </template>
 
@@ -36,6 +37,7 @@ const jumpDetail = () => {
 const showSynthesis = ref(true)
 
 // 数据获取
+const dataif = ref(false);
 const blogInfo = ref([])
 axios.request({
     method: 'post',
@@ -44,10 +46,15 @@ axios.request({
         blogType: 'UI'
     }
 }).then((res) => {
-    blogInfo.value = res.data.data;
+    blogInfo.value = res.data.data.reverse();
     if(blogInfo.value != ''){
         setTimeout(function () {
             showSynthesis.value = false;
+        }, 500);
+    } else {
+        setTimeout(function () {
+            showSynthesis.value = false;
+            dataif.value = true;
         }, 500);
     }
 })

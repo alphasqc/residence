@@ -23,12 +23,8 @@
     padding: 1rem;
 }
 
-.person-card {
-    height: 12rem;
-}
-
 .person-box {
-    height: 10rem;
+    height: 30rem;
 }
 
 @media screen and (max-width: 950px) {
@@ -67,6 +63,126 @@
     color: rgba(121, 121, 121, 0.8)
 }
 
+.navbox {
+    height: 3rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(218, 218, 218, 0.7);
+}
+
+.navbox > a{
+    color: rgba(21, 21, 21, 0.8);
+    font-size: 0.9rem;
+    padding: 0 1rem 0 1rem;
+}
+
+.navbox > a:hover {
+    color: rgba(22, 103, 255, 0.9)
+}
+
+.navbox a.router-link-exact-active {
+    color: rgba(22, 103, 255, 0.9);
+}
+
+.pcontent {
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+    color: rgb(160, 160, 160);
+    font-size: 4px;
+}
+
+.primary-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-grow: 1;
+    min-width: 30rem;
+}
+
+.blog-box ,.note-box {
+    height: 5rem;
+    background-color: #fff;
+    border-bottom: solid 1px rgba(216, 216, 216, 0.4);
+    padding: 1rem;
+    display: flex;
+}
+
+.note-box {
+    height: 1.5rem;
+}
+
+.star > div:last-child {
+    border: none;
+}
+
+.like > div:last-child {
+    border: none;
+}
+
+.like, .star, .note, .writer {
+    height: 27rem;
+    overflow-y: auto;
+}
+
+.ptitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.person-data {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+}
+
+.person-img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+    background-color: rgb(156, 156, 156);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: rgb(218, 218, 218);
+    font-weight: 600;
+    /* 超过隐藏 */
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+}
+
+.userdata {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.username {
+    font-size: 1.3rem;
+    color:rgb(160, 160, 160)
+}
+
+.useremail {
+    color:rgb(160, 160, 160)
+}
+
 .setting-box {
-    height: 22rem;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+.set-button {
+    display: flex;
+    justify-content: space-around;
 }

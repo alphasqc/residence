@@ -15,14 +15,11 @@
                         </div>
                     </div>
                 </div>
-                <el-button type="primary" @click="jumpSetting" v-show="myself">
-                    个人设置
-                </el-button>
             </div>
             <div class="person-box">
                 <nav class="navbox">
                     <template v-for="item in personList" :key="item">
-                        <router-link :to="item.index" v-show="item.show">{{ item.title }}</router-link>
+                        <router-link :to="item.index">{{ item.title }}</router-link>
                     </template>
                 </nav>
                 <div class="listbox">
@@ -35,11 +32,12 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
 import axios from 'axios';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 // 用户数据获取
+const route = useRoute();
 const userList = ref('')
 
 axios.request({
@@ -52,40 +50,21 @@ axios.request({
     userList.value = res.data.data[0];
 })
 
-const router = useRouter();
-const jumpSetting = () => {
-    router.push('/personsetting')    
-}
-
 const personList = [
     {
-        index: '/note',
-        title: '笔记',
-        show: false
-    },
-    {
         index: '/writer',
-        title: '发表',
-        show: true
+        title: '发表'
     },
     {
         index: '/star',
-        title: '收藏',
-        show: true
+        title: '收藏'
     },
     {
         index: '/like',
-        title: '点赞',
-        show: true
-    },
+        title: '点赞'
+    }
 ]
 
-// 判断用户
-const myself = ref(false);
-if (JSON.parse(localStorage.getItem('userInfo')).userID == JSON.parse(localStorage.getItem('userID'))) {
-    myself.value = true;
-    personList[0].show = true;
-}
 </script>
 
 <style scoped>

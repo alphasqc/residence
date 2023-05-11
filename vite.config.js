@@ -38,7 +38,7 @@ export default defineConfig({
     // 代理端口
     port: 3000,
     // 自动打开浏览器
-    open: true,
+    // open: true,
     proxy: {
       "/api": {
         // 目标地址

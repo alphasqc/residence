@@ -9,7 +9,12 @@ import SearchTea from '@views/search/SearchTea.vue'
 import SearchUser from '@views/search/SearchUser.vue'
 
 import PersonshowView from '@views/user/PersonshowView.vue'
+import UsershowView from '@views/user/UsershowView.vue'
 import PersonsettingView from '@views/user/PersonsettingView.vue'
+import NoteComponent from '@components/userCenter/NoteComponent.vue'
+import LikeComponent from '@components/userCenter/LikeComponent.vue'
+import StarComponent from '@components/userCenter/StarComponent.vue'
+import WriterComponent from '@components/userCenter/WriterComponent.vue'
 
 import PrimaryView from '@views/primary/PrimaryView.vue'
 import SynthesisView from '@views/primary/SynthesisView.vue'
@@ -123,10 +128,45 @@ const routes = [
             {
                 path: '/personshow',
                 name: 'personshow',
+                redirect: '/writer',
                 meta: {
                     title: '用户页'
                 },
-                component: PersonshowView
+                component: PersonshowView,
+                children: [
+                    {
+                        path: '/note',
+                        name: 'note',
+                        meta: {
+                            title: '笔记模块'
+                        },
+                        component: NoteComponent
+                    },
+                    {
+                        path: '/writer',
+                        name: 'writer',
+                        meta: {
+                            title: '发表模块'
+                        },
+                        component: WriterComponent
+                    },
+                    {
+                        path: '/star',
+                        name: 'star',
+                        meta: {
+                            title: '收藏模块'
+                        },
+                        component: StarComponent
+                    },
+                    {
+                        path: '/like',
+                        name: 'like',
+                        meta: {
+                            title: '点赞模块'
+                        },
+                        component: LikeComponent
+                    }
+                ]
             },
             {
                 path: '/personsetting',

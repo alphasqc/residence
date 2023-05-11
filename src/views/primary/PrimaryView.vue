@@ -26,10 +26,10 @@ const primaryList = [
         index: '/synthesis',
         title: '综合'
     },
-    {
-        index: '/focus',
-        title: '关注'
-    },
+    // {
+    //     index: '/focus',
+    //     title: '关注'
+    // },
     {
         index: '/front',
         title: '前端'
