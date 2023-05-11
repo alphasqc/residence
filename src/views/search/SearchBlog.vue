@@ -17,6 +17,7 @@
                 </div>
             </template>
         </div>
+        <el-card shadow="always" v-show="dataif">未找到相关数据</el-card>
     </div>
 </template>
 
@@ -24,17 +25,33 @@
 import SkeletonComponent from '@components/SkeletonComponent.vue'
 import axios from 'axios';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 // 控制骨架屏显示
 const showSynthesis = ref(true)
+const searchInput = JSON.parse(localStorage.getItem('searchinput'));
 
 // 数据获取
-const blogInfo = ref([])
-axios.get('/api/blogs').then((res) => {
-    blogInfo.value = res.data.data;
+const blogInfo = ref([]);
+const dataif = ref(false);
+axios.request({
+    method: 'post',
+    url: '/api/blogs/search',
+    data: {
+        searchInput: searchInput
+    }
+}).then((res) => {
+    blogInfo.value = res.data.data.reverse();
     if (blogInfo.value != '') {
         setTimeout(function () {
             showSynthesis.value = false;
+        }, 500);
+    } else {
+        setTimeout(function () {
+            showSynthesis.value = false;
+            dataif.value = true;
         }, 500);
     }
 })

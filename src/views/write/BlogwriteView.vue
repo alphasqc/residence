@@ -19,12 +19,13 @@
                     :value="item.value"
                     />
             </el-select>
-        </div>s
+        </div>
     </div>
 </template>
 
 <script setup>
 import axios from 'axios';
+import { ElMessage } from 'element-plus';
 import { onMounted, ref, watch, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -39,20 +40,24 @@ const blogInfo = ref({
 });
 
 const submitBlog = () => {
-    axios.request({
-        method: 'post',
-        url: '/api/blogs/add',
-        data: {
-            UserUserID: userInfo.userID,
-            blogTitle: blogInfo.value.title,
-            blogContent: blogInfo.value.content,
-            blogType: selectNum.value,
-            blogImg: blogInfo.value.img
-        }
-    }).then((res) => {
-        console.log(res)
-    })
-    router.push('/primary')
+    if(blogInfo.value.title == '' || blogInfo.value.content == '' || selectNum.value == ''){
+        ElMessage.error('缺少发表文章必要信息!');
+    }else {
+        axios.request({
+            method: 'post',
+            url: '/api/blogs/add',
+            data: {
+                UserUserID: userInfo.userID,
+                blogTitle: blogInfo.value.title,
+                blogContent: blogInfo.value.content,
+                blogType: selectNum.value,
+                blogImg: blogInfo.value.img
+            }
+        }).then((res) => {
+            console.log(res)
+        })
+        router.push('/primary')
+    }
 };
 
 // 类型选中

@@ -3,7 +3,7 @@
             <skeleton-component v-show="showSynthesis" />
             <div class="primary-box" v-show="!showSynthesis">
                 <template v-for="(item, index) in blogInfo" :key="index">
-                    <div class="blog-box" @click="jumpDetail">
+                    <div class="blog-box" @click="jumpDetail(item.blogID)">
                         <div class="primary-img" v-show="item.blogImg != ''">
                             <img :src=item.blogImg alt="">
                         </div>
@@ -28,8 +28,11 @@ import { useRouter } from 'vue-router';
 
 // 页面跳转
 const router = useRouter();
-const jumpDetail = () => {
-    router.push('/blogdetail')
+const jumpDetail = (blogID) => {
+    router.push({
+        path: '/blogdetail',
+        query: { blogID: blogID }
+    });
 }
 
 // 控制骨架屏显示
@@ -44,7 +47,7 @@ axios.request({
         blogType: '关注'
     }
 }).then((res) => {
-    blogInfo.value = res.data.data;
+    blogInfo.value = res.data.data.reverse();
     if (blogInfo.value != '') {
         setTimeout(function () {
             showSynthesis.value = false;

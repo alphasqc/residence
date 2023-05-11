@@ -18,7 +18,7 @@
             </div>
             <div class="user-box" v-show="!skeletondom">
                 <template v-for="(item,index) in userList" :key="index">
-                    <div class="user-card" id="user-card">
+                    <div class="user-card" id="user-card" @click="jumpUser(item.userID)">
                         <el-skeleton style="--el-skeleton-circle-size: 80px" >
                             <template #template>
                             <el-skeleton-item variant="circle" />
@@ -35,7 +35,8 @@
 
 <script setup>
 import axios from 'axios';
-import { ref } from 'vue'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const userItems = new Array(5).fill(
 )
@@ -53,6 +54,14 @@ axios.get('/api/user').then((res) => {
         }, 500);
     }
 })
+
+// 用户跳转
+const router = useRouter();
+
+const jumpUser = (userID) => {
+    router.push('/personshow');
+    localStorage.setItem('userID', userID)
+}
 </script>
 
 <style scoped>
