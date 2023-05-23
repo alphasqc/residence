@@ -34,7 +34,7 @@
                 </template>
             </div>
 
-            <div v-show="!teaDom">
+            <div class="teadata" v-show="!teaDom">
                 <template v-for="(item,index) in teaList" :key="index">
                     <div  class="tea-main" >
                         <div class="tea-box">

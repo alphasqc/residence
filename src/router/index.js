@@ -9,7 +9,6 @@ import SearchTea from '@views/search/SearchTea.vue'
 import SearchUser from '@views/search/SearchUser.vue'
 
 import PersonshowView from '@views/user/PersonshowView.vue'
-import UsershowView from '@views/user/UsershowView.vue'
 import PersonsettingView from '@views/user/PersonsettingView.vue'
 import NoteComponent from '@components/userCenter/NoteComponent.vue'
 import LikeComponent from '@components/userCenter/LikeComponent.vue'
@@ -31,6 +30,14 @@ import ResidenceView from '@views/residence/ResidenceView.vue'
 import BlogwriteView from '@views/write/BlogwriteView.vue'
 
 import BlogDetail from '@views/blog/BlogDetail.vue'
+
+import LoadingComponent from '@components/LoadingComponent.vue'
+
+import AdminView from '@admin/AdminView.vue'
+
+import UserComponent from '@admin/main/UserComponent.vue'
+import BlogComponent from '@admin/main/BlogComponent.vue'
+import TeaComponent from '@admin/main/TeaComponent.vue'
 
 const routes = [
     {
@@ -169,6 +176,14 @@ const routes = [
                 ]
             },
             {
+                path: '/loading',
+                name: 'loading',
+                meta: {
+                    title: '中转页'
+                },
+                component: LoadingComponent
+            },
+            {
                 path: '/personsetting',
                 name: 'personsetting',
                 meta: {
@@ -210,6 +225,41 @@ const routes = [
                         component: SearchUser
                     }
                 ]
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        name: 'admin',
+        meta: {
+            title: '管理台'
+        },
+        component: AdminView,
+        redirect: 'user',
+        children: [
+            {
+                path: '/user',
+                name: 'user',
+                meta: {
+                    title: '用户管理'
+                },
+                component: UserComponent
+            },
+            {
+                path: '/blog',
+                name: 'blog',
+                meta: {
+                    title: '文章管理'
+                },
+                component: BlogComponent
+            },
+            {
+                path: '/tea',
+                name: 'tea',
+                meta: {
+                    title: '讨论管理'
+                },
+                component: TeaComponent
             }
         ]
     },

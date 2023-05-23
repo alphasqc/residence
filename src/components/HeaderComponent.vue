@@ -7,7 +7,9 @@
             router
             >
 
-            <div class="logo" @click="Reset">LOGO</div>
+            <div class="logo" @click="Reset">
+                <img src="../../public/logo.png" />
+            </div>
             <template v-for="item in navItems">
                 <el-menu-item :index="item.index">{{ item.title }}</el-menu-item>
             </template>
@@ -123,7 +125,7 @@ const jumpLogin = () => {
 
 // 个人页跳转
 const jumpUser = () => {
-    router.push('/personshow');
+    router.push('/loading');
     localStorage.setItem('userID', JSON.parse(localStorage.getItem('userInfo')).userID)
 }
 
@@ -164,7 +166,7 @@ const writeTest = () => {
         ElMessage.warning('请先登录')
     } else {
         router.push({
-            path: '/personshow',
+            path: '/loading',
             query: { personshow: true }
         });
     }

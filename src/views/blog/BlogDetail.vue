@@ -81,6 +81,14 @@ axios.request({
         }
     }).then((res) => {
         writerdata.value = res.data.data[0]
+        axios.request({
+            method: 'post',
+            url: '/api/blogs/reading',
+            data: {
+                blogID: route.query.blogID,
+                blogReading: blogdata.value.blogReading+1
+            }
+        })
     })
 });
 
